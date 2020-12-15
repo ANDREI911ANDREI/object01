@@ -1,0 +1,66 @@
+body{
+	.slider{
+		width: 100%;
+		height: 100%;
+		&__container{
+			text-align: center;
+			img{
+				min-width: 500px;
+				object-fit: cover;
+			}
+		}
+		&__control{
+			text-align: center;
+			.slider__dots{
+				text-align: center;
+				width: 100px;
+				height: 50px;
+				display: block;
+				margin: 0 auto;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				.dot{
+					width: 10px;
+					height: 10px;		
+					background-color:  rgba(240, 65, 65, 0.9);
+					border-radius: 360px;
+					cursor: pointer;
+					&:hover{
+						background-color:  rgba(240, 65, 65, 0.5);
+					}
+					&:active{
+						background-color: rgb(202, 21, 21 );
+						transition: 0,5s all;
+						border-radius: 360px;
+					}
+					&_active{
+						background-color: rgb(202, 21, 21 );
+						transition: 0,5s all;
+						border-radius: 360px;
+						width: 10px;
+						height: 10px;
+						cursor: pointer;
+					}
+				}
+			}   
+			button{
+				width: 50px;
+				height: 50px;
+				background-color: rgb(160, 23, 23);
+				color: white;
+				font-size: 40px;
+				outline: none;
+				border: none;
+				cursor:pointer;
+				&:hover{
+					background-color: rgba(160, 23, 23, .5);
+				}
+				&:active{
+					background-color: rgb(112, 18, 18);
+				}
+
+			} 
+		}
+	}
+}
