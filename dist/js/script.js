@@ -1,22 +1,12 @@
-const img = document.querySelector('.slider__container__img');
+var openModal = 0;
+var modal = document.getElementsByClassName('.modal_windows');
 
-const imgArr = ['../img/rectangle_2_248.jpg ', '../img/rectangle_2_copy_250.jpg ', '../img/rectangle_2_copy_2_252.jpg'];
-
-var dots = document.querySelectorAll('.dot'); 
-
-function changeIndex(ind){
-    currentIndex = ind ;
+function openModals(ind) {
+	//openModal = ind;
+	if (openModal == 0) {
+		modal.style.display = 'none';
+	}else {
+		modal.style.display = 'block';
+	}
 }
-
-let currentIndex = 0;
-
-function slide(direction) {
-    currentIndex += direction ;
-    if( currentIndex >= imgArr.length){
-        currentIndex = 0 ;
-    }else if (currentIndex < 0){
-        currentIndex = imgArr.length -1 ;
-    }
-    img.src = imgArr[currentIndex];
-}
-
+console.log(openModal);

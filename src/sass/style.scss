@@ -1,13 +1,17 @@
 body{
+	position: relative;
 	.slider{
 		width: 100%;
 		height: 100%;
+		margin-bottom: 30px;
 		&__container{
 			text-align: center;
 			img{
 				min-width: 500px;
 				object-fit: cover;
+				
 			}
+
 		}
 		&__control{
 			text-align: center;
@@ -21,8 +25,8 @@ body{
 				justify-content: space-around;
 				align-items: center;
 				.dot{
-					width: 10px;
-					height: 10px;		
+					width: 30px;
+					height: 30px;		
 					background-color:  rgba(240, 65, 65, 0.9);
 					border-radius: 360px;
 					cursor: pointer;
@@ -34,14 +38,22 @@ body{
 						transition: 0,5s all;
 						border-radius: 360px;
 					}
-					&_active{
+					.dot_active{
 						background-color: rgb(202, 21, 21 );
 						transition: 0,5s all;
 						border-radius: 360px;
-						width: 10px;
-						height: 10px;
+						width: 30px;
+						height: 30px;
 						cursor: pointer;
 					}
+				}
+				.dot_active{
+					background-color: rgb(202, 21, 21 );
+					transition: 0,5s all;
+					border-radius: 360px;
+					width: 30px;
+					height: 30px;
+					cursor: pointer;
 				}
 			}   
 			button{
@@ -61,6 +73,53 @@ body{
 				}
 
 			} 
+		}
+	}
+	#modal{
+		display: block;
+		margin: 0 auto;
+	}
+	.modal_windows{
+		display: none;
+		margin: 0px 0px;
+		padding: 0px 0px;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100vh;
+		background-color: rgba(0,0,0, .8);
+		z-index: 1;
+		transition: all 2s;
+		overflow: auto;
+		.modal_window{
+			top: 250px;
+			transform: translateX(105%);
+			position: absolute;
+			background-color: rgb(204, 198, 198);
+			text-align: center;
+			border: 1px solid ;
+			width: 600px;
+			height: 400px;
+			
+			.container{
+				input{
+					display: block;
+					margin: 0 auto;
+					width: 80%;
+				}
+				textarea{
+					display: block;
+					margin: 0 auto;
+					width: 80%;
+				}
+			}
+			.modal_close{
+				color: #ffffff;
+				font-size: 50px;
+				font-weight: 700;
+				cursor:pointer;
+			}
 		}
 	}
 }
