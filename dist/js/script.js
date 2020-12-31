@@ -150,12 +150,13 @@ let money,time;
 
 function start () {
 	money = +prompt ("Ваш бюджет на месяц?", "");
-	time = prompt ("Введите дату в формате YYYY-MM-DD", "");
+	time = +prompt ("Введите дату в формате YYYY-MM-DD", "");
 
-	while ( isNaN(money) || money == " " || money == null ) {
+	while ( isNaN (money) || money == " " || money == null ) {
 		money = +prompt ("Ваш бюджет на месяц?", "");
 	}
 }
+
 start();
 
 let appData = {
@@ -167,37 +168,45 @@ let appData = {
     savings: true
 };
 
-function choseeExpenses() {
-	for (let i = 0; i < 2; i++) {
-		    let a = +prompt ("Введите обязательную статью расходов в этом месяце", ""),
-		        b = +prompt ("Во сколько обойдется?", "");
+// function choseeExpenses() {
+// 	for (let i = 0; i < 2; i++) {
+// 		    let a = +prompt ("Введите обязательную статью расходов в этом месяце", ""),
+// 		        b = +prompt ("Во сколько обойдется?", "");
 		
-		    if ( typeof(a)==='string' && typeof(a) != null && typeof(b) != null && a != "" && b != "" && a.length < 50) {
-		        appData.expenses[a] = b;
-		    } else {                            
-		        console.log ("bad result");
-		        i--;
-		    }
+// 		    if ( typeof(a)==='string' && typeof(a) != null && typeof(b) != null && a != "" && b != "" && a.length < 50) {
+// 		        appData.expenses[a] = b;
+// 		    } else {                            
+// 		        console.log ("bad result");
+// 		        i--;
+// 		    }
 		
-		}
+// 		}
+// }
+
+// choseeExpenses();
+
+
+function detectedDayBudget() {
+	appData.moneyPerDay = (appData.budget / 30).toFixed(); //toFixed()округляет значение , 
+// меняет значение на строку 
+	alert ("Бюджет на 1 день составляет " + appData.moneyPerDay + "руб.");	
 }
 
-choseeExpenses();
+detectedDayBudget();
 
-appData.moneyPerDay = (appData.budget / 30).toFixed() ; //toFixed() меняет значение на строку 
+function detectedLevel(){
+	if (appData.moneyPerDay < 100) {
+		alert("Это минимальный уровень достатка!");
+	} else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
+		alert("Это средний уровень достатка!");
+	} else if (appData.moneyPerDay > 2000) {
+		alert("Это высокий уровень достатка!");
+	} else {
+		alert("Произошла ошибка");
+	}
+}
 
-alert ("Бюджет на 1 день составляет " + appData.moneyPerDay + "руб.");
-
-
-if (appData.moneyPerDay < 100) {
-    alert("Это минимальный уровень достатка!");
-} else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
-    alert("Это средний уровень достатка!");
-} else if (appData.moneyPerDay > 2000) {
-    alert("Это высокий уровень достатка!");
-} else {
-    alert("Произошла ошибка");
-};
+detectedLevel();
 
 function checkSavings (){
 	if ( appData.savings == true) {
@@ -210,3 +219,14 @@ function checkSavings (){
 	
 }
 checkSavings();
+
+
+function chooseOptExpenses() {
+	for (let i = 1; i <= 3; i++) {
+        let questionOptExpenses = +prompt("Статья необязательных расходов?");
+        appData.optionalExpenses[i] = questionOptExpenses;
+        console.log(appData.optionalExpenses);
+    }
+}
+
+chooseOptExpenses();
