@@ -1,4 +1,5 @@
-" use strict";
+'use strict';
+
 // var openModal = 0;
 // var modal = document.getElementsByClassName('.modal_windows');
 
@@ -284,8 +285,8 @@
 
 // console.log(Object.keys(options).length); //количество свойств в объекте 
 
-// let arr = ["first", 2, 3, 4, "five"];
-//arr.pop(); //удалить значение с конца 
+// let arr = [1, 2, 3, 4, 5];
+// arr.pop(); //удалить значение с конца 
 
 // arr.push(6); //добавляет значение в конце массива 
 // arr.push(9);
@@ -299,8 +300,15 @@
 // console.log(arr); 
 
 
-// перебор элементов массива 
+// // перебор элементов массива 
 
+// for(let i = 0; i < arr.length ; i++) {
+// 	console.log(arr[i]);
+
+// }
+
+// arr[99] = 99; 
+// arr[99] = 99; //назначение 99 элемента значением 99 . 
 // for(let i = 0; i < arr.length ; i++) {
 // 	console.log(arr[i]);
 // }
@@ -364,16 +372,16 @@
 // console.log(john.armor);
 
 
-function start () {
-	money = +prompt ("Ваш бюджет на месяц?", "");
-	time = +prompt ("Введите дату в формате YYYY-MM-DD", "");
+// function start () {
+// 	money = +prompt ("Ваш бюджет на месяц?", "");
+// 	time = +prompt ("Введите дату в формате YYYY-MM-DD", "");
 
-	while ( isNaN (money) || money == " " || money == null ) {
-		money = +prompt ("Ваш бюджет на месяц?", "");
-	}
-}
+// 	while ( isNaN (money) || money == " " || money == null ) {
+// 		money = +prompt ("Ваш бюджет на месяц?", "");
+// 	}
+// }
 
-start();
+// start();
 
 let appData = {
     budget: money,
@@ -430,11 +438,11 @@ let appData = {
     chooseIncome : function(){
 		let items = prompt("Что принесет дополнительный доход ?" + "(перечислите через запятую )", '');
 		appData.income = items.split(', ');
-		appData.income.push(prompt('Что еще может принести дополнительный доход ? ',''));
+		appData.income.push( prompt ('Что еще может принести дополнительный доход ? ',''));
 		appData.income.sort();
 		
 		appData.income.forEach( function (item, i, income ){
-		alert("Способы дополнительного заработка :" + i+1 + '.'+ item , '');
+		alert("Способы дополнительного заработка :" + i + 1 + '.'+ item , '');
 		}) ;
 	}
 	
@@ -444,6 +452,4 @@ appData.chooseIncome();
 for (let key in appData) {
     console.log("Наша программа включает в себя данные: " + key + " - " + appData[key]);
 }
-
-
 
